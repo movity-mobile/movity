@@ -22,8 +22,16 @@ class MyApp extends StatelessWidget {
 
       },
       theme: ThemeData(
-         // backgroundColor: Colors.black45,
-          primarySwatch: Palette.kToDark
+
+          primarySwatch: Palette.kToDark,
+          primaryTextTheme: const TextTheme(
+          headline6: TextStyle(
+          color: Colors.white
+          ))
+
+
+
+
       ),
       initialRoute: "/",
 
