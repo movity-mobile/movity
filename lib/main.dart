@@ -1,9 +1,9 @@
+import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:movity_app/pages/home.page.dart';
+import 'package:movity_app/pages/root.view.page.dart';
 import 'UI/kToDark.UI.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main()=> runApp(MyApp());
 
@@ -14,29 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        "/":(context)=>HomePage(),
-
-
-      },
-      theme: ThemeData(
-
-          primarySwatch: Palette.kToDark,
-          primaryTextTheme: const TextTheme(
-          headline6: TextStyle(
-          color: Colors.white
-          ))
-
-
-
-
-      ),
-      initialRoute: "/",
-
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context)=>ThemeBloc(),),
+        ],
+        child: const RootView()
 
     );
+
+
   }
 }
 

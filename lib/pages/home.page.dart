@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movity_app/bloc/theme.bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/drawer.widget.dart';
 class HomePage extends StatelessWidget {
@@ -7,13 +9,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Theme.of(context).primaryColor,
-
         bottomNavigationBar: MyDrawer(),
-        appBar: AppBar(title: Text('Movity',)),
+        appBar: AppBar(title: Text('Movity',),actions: [
+          IconButton(onPressed: (){
+            context.read<ThemeBloc>().add(SwitchThemeEvent());
+          }, icon: const Icon(Icons.switch_account))
+        ],),
         body: Center(
           child: Text("Home page",
-              style: TextStyle(fontSize: 60, color: Colors.white)
+
+              style: TextStyle(fontSize: 60)
         )
     )
     );
