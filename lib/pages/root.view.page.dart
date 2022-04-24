@@ -14,8 +14,10 @@ class RootView extends StatelessWidget {
     return BlocBuilder<ThemeBloc,ThemeState>(
         builder: (context,state){
           return MaterialApp(
-            debugShowCheckedModeBanner: false,
+            themeMode: ThemeMode.system,
             theme: state.theme,
+            darkTheme: state.theme,
+            debugShowCheckedModeBanner: false,
             routes: {
               "/":(context)=>const HomePage(),
               "/QR":(context)=>const QrGeneratorPage(),
