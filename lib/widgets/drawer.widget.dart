@@ -10,7 +10,7 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = <Widget>[ Icon(Icons.home, size: 30),
+    final items = <Widget>[ Icon(Icons.home, size: 30,),
       Icon(Icons.search, size: 30,),
       Icon(Icons.movie, size: 30),
       Icon(Icons.qr_code, size: 30),
@@ -22,7 +22,7 @@ class MyDrawer extends StatelessWidget {
       SearchPage(),
     ];
     return CurvedNavigationBar(
-        //color: Theme.of(context).primaryColor,
+        color: Theme.of(context).bottomAppBarColor,
         backgroundColor: Colors.transparent,
         height: 60,
         animationCurve: Curves.easeInOut,
