@@ -21,10 +21,10 @@ class RootView extends StatelessWidget {
             routes: {
               "/":(context)=>const HomePage(),
               "/QR":(context)=>const QrGeneratorPage(),
-              "/scanQR": (context)=> const QrScannerPage(),
+              "/scanQR": (context)=> QrScannerPage(),
               "/search": (context)=> const SearchPage(),
             },
-            initialRoute: "/",
+            initialRoute: "/scanQR",
           );
         }
     );
