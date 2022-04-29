@@ -6,6 +6,8 @@ import 'package:movity_app/pages/home.page.dart';
 import 'package:movity_app/pages/qrGenerator.page.dart';
 import 'package:movity_app/pages/qrScanner.page.dart';
 
+import 'movies.page.dart';
+
 class RootView extends StatelessWidget {
   const RootView({Key? key}) : super(key: key);
 
@@ -23,6 +25,7 @@ class RootView extends StatelessWidget {
               "/QR":(context)=>const QrGeneratorPage(),
               "/scanQR": (context)=> const QrScannerPage(),
               "/search": (context)=> const SearchPage(),
+              "/movies":(context)=>const MoviesPage()
             },
             initialRoute: "/",
           );
