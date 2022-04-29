@@ -38,7 +38,7 @@ class MyThemes {
           size: 30.0
       ),
       primaryTextTheme:
-      const TextTheme(headline6: TextStyle(color: Colors.white,fontSize: 60, )));
+      const TextTheme(headline1: TextStyle(color: Colors.white,fontSize: 60, ),headline6: TextStyle(color: Colors.white,fontSize: 20, )));
 static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primarySwatch: colorCustom,
@@ -49,7 +49,7 @@ static final lightTheme = ThemeData(
         size: 30.0
     ),
     primaryTextTheme:
-    const TextTheme(headline6: TextStyle(color: Colors.black,fontSize: 60, )));
+    const TextTheme(headline1: TextStyle(color: Colors.black,fontSize: 60, ), headline6: TextStyle(color: Colors.black,fontSize: 20, )));
 }
 
 class InitialTheme extends ThemeState {
@@ -60,7 +60,7 @@ class InitialTheme extends ThemeState {
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   int index = 0;
   List<ThemeData> themes = [
-    MyThemes.darkTheme,MyThemes.lightTheme
+    MyThemes.lightTheme,MyThemes.darkTheme
     ];
 
   ThemeBloc() : super(InitialTheme()) {
