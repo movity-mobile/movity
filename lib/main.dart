@@ -1,7 +1,7 @@
+import 'package:movity_app/bloc/genre.bloc.dart';
+import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/bloc/theme.bloc.dart';
-import 'package:movity_app/pages/home.page.dart';
 import 'package:movity_app/pages/root.view.page.dart';
-import 'UI/kToDark.UI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,8 +17,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context)=>ThemeBloc(),),
+          BlocProvider(create: (context)=>MovieBloc(),),
+          BlocProvider(create: (context)=>GenreBloc(),),
         ],
-        child: const RootView()
+        child: const RootView(),
 
     );
 
