@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movity_app/widgets/drawer.widget.dart';
+import 'package:movity_app/widgets/drawar.widget.dart';
 import 'package:movity_app/widgets/switch.widget.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_flutter/qr_flutter.dart';

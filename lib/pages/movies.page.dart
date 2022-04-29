@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
+import '../widgets/drawar.widget.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:movity_app/widgets/drawer.widget.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'dart:convert';
+
 class MoviesPage extends StatelessWidget {
   const MoviesPage({Key? key}) : super(key: key);
   @override
@@ -16,6 +18,7 @@ class MoviesPage extends StatelessWidget {
     TextEditingController _textEditingController = TextEditingController();
     _textEditingController.text=movieBloc.currentQuery;
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text("Movies")
       ),
@@ -71,8 +74,8 @@ class MoviesPage extends StatelessWidget {
     },
     child:Padding(
     padding: EdgeInsets.symmetric(
-    horizontal: 20,
-    vertical: 20
+    horizontal: 10,
+    vertical: 10
     ),
     child: GridView.builder(
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -107,7 +110,32 @@ class MoviesPage extends StatelessWidget {
               borderRadius: BorderRadius.vertical(
                   top: Radius.circular(20)
               ),
-              child:Image.network("https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}"),
+              child:CachedNetworkImage(
+                imageUrl:
+                'https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}',
+                height: MediaQuery.of(context).size.height ,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorWidget: (context, url, error) => Container(
+                  width:  MediaQuery.of(context).size.height,
+                  height: double.infinity,
+
+                  decoration: BoxDecoration(
+
+                    image: DecorationImage(
+                      fit:  BoxFit.cover,
+                      image: AssetImage('assets/images/img_not_found.jpg'
+                      ),
+                    ),
+
+                  ),
+                ),
+              ),
+              /*Image.network(
+
+                  "https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}"
+
+              ),*/
 
             ),
           ),
@@ -116,21 +144,23 @@ class MoviesPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
                   KText(
                     text: '${state.movies[index].title}',
-                    color: Colors.blue,
+                    color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                   KText(
                     text: '${state.movies[index].releaseDate}',
-                    color: Colors.blue,
+                    color: Colors.grey,
                     fontSize: 13,
                   ),
                   SizedBox(height: 2),
                   RatingBar.builder(
-                    initialRating: 3,
+                    initialRating: double.parse(state.movies[index].voteAverage.toString()),
                     minRating: 1,
+                    maxRating: 10,
                     itemSize: 15,
                     // updateOnDrag: true,
                     tapOnlyMode: true,
@@ -150,7 +180,7 @@ class MoviesPage extends StatelessWidget {
                   KText(
                     text: '${state.movies[index].overview}',
                     maxLines: 3,
-                    color: Colors.blue.withOpacity(.70),
+                    color: Colors.white,
                     fontSize: 11,
                   ),
                 ],
