@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/drawer.widget.dart';
+import '../widgets/drawar.widget.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -9,13 +9,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
        backgroundColor: Theme.of(context).primaryColor,
 
-        bottomNavigationBar: MyDrawer(),
         appBar: AppBar(title: Text('Movity',)),
         body: Center(
           child: Text("Home page",
               style: TextStyle(fontSize: 60, color: Colors.white)
         )
-    )
+
+    ),
+      drawer: MyDrawer(),
     );
   }
 }
