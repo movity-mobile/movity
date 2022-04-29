@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: MyDrawar(),
+        drawer: MyDrawer(),
         appBar: AppBar(
           title: Text(
             'Movity',
