@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
+import '../widgets/drawar.widget.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:movity_app/widgets/drawer.widget.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -18,6 +18,7 @@ class MoviesPage extends StatelessWidget {
     TextEditingController _textEditingController = TextEditingController();
     _textEditingController.text=movieBloc.currentQuery;
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text("Movies")
       ),

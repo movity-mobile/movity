@@ -3,7 +3,7 @@ import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
-import '../widgets/drawer.widget.dart';
+import '../widgets/drawar.widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: MyDrawer(),
+        drawer: MyDrawer(),
         appBar: AppBar(
           title: Text(
             'Movity',

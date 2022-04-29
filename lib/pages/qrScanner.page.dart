@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/drawer.widget.dart';
+import '../widgets/drawar.widget.dart';
 class QrScannerPage extends StatelessWidget {
   const QrScannerPage({Key? key}) : super(key: key);
 
@@ -9,7 +9,7 @@ class QrScannerPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
 
-        bottomNavigationBar: MyDrawer(),
+        drawer: MyDrawer(),
         appBar: AppBar(title: Text('Movity',)),
         body: Center(
             child: Text("QR Scanner",
