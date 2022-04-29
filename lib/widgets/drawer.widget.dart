@@ -17,7 +17,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final items = <Widget>[ Icon(Icons.home, size: 30),
+    final items = <Widget>[ Icon(Icons.home, size: 30,),
       Icon(Icons.search, size: 30,),
       Icon(Icons.movie, size: 30),
       Icon(Icons.qr_code, size: 30),
@@ -28,25 +28,12 @@ class _MyDrawerState extends State<MyDrawer> {
       QrScannerPage(),
       SearchPage(),
     ];
-    return Scaffold(
-
-      body: screens[index],
-      bottomNavigationBar: CurvedNavigationBar(
-        //color: Theme.of(context).primaryColor,
-          key: navigationKey,
-          backgroundColor: Colors.transparent,
-          height: 60,
-          index: index,
-          animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 300),
-          onTap: (index) =>
-            setState(() =>
-              this.index = index
-            )
-          ,
-          items: items)
-
-    );
+    return CurvedNavigationBar(
+        color: Theme.of(context).bottomAppBarColor,
+        backgroundColor: Colors.transparent,
+        height: 60,
+        animationCurve: Curves.easeInOut,
+        animationDuration: Duration(milliseconds: 300),
 
   }
 }

@@ -4,10 +4,12 @@ import 'package:movity_app/pages/movies.page.dart';
 import 'package:movity_app/pages/qrGenerator.page.dart';
 import 'package:movity_app/pages/qrScanner.page.dart';
 import 'UI/kToDark.UI.dart';
+import 'package:movity_app/bloc/genre.bloc.dart';
+import 'package:movity_app/bloc/movies.bloc.dart';
+import 'package:movity_app/bloc/theme.bloc.dart';
+import 'package:movity_app/pages/root.view.page.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main()=> runApp(MyApp());
 
@@ -18,34 +20,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        "/":(context)=>HomePage(),
-        "/search":(context)=>SearchPage(),
-        "/movies":(context)=>MoviesPage(),
-        "/qrGenerator":(context)=>QrGeneratorPage(),
-        "/qrScanner":(context)=>QrScannerPage(),
-
-
-      },
-      theme: ThemeData(
-
-          primarySwatch: Palette.kToDark,
-          primaryColor: Colors.black87,
-          primaryTextTheme: const TextTheme(
-          headline6: TextStyle(
-          color: Colors.black
-          ))
-
-
-
-
-      ),
-      initialRoute: "/",
-
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context)=>ThemeBloc(),),
+          BlocProvider(create: (context)=>MovieBloc(),),
+          BlocProvider(create: (context)=>GenreBloc(),),
+        ],
+        child: const RootView(),
 
     );
+
+
   }
 }
 
