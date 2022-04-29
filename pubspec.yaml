@@ -30,7 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
   provider:
-  flutter_bloc:
   lite_rolling_switch:
   path_provider:
   qr_code_scanner:

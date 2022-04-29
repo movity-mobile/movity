@@ -28,7 +28,6 @@ class _QRViewScannerPageState extends State<QrScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyDrawer(),
       appBar: AppBar(
         title: Text(
           'QR Scanner',
