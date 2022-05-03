@@ -25,7 +25,7 @@ class RootView extends StatelessWidget {
               "/qrGenerator":(context)=>const QrGeneratorPage(),
               "/qrScanner": (context)=> QrScannerPage(),
               "/search": (context)=> const MoviesPage(),
-              "/movies":(context)=>const SearchPage()
+              "/movies":(context)=> SearchPage()
             },
             initialRoute: "/",
           );

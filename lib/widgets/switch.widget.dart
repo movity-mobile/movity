@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
-
+import 'package:flutter_switch/flutter_switch.dart';
+bool status = true;
 class MySwitch extends StatelessWidget {
   const MySwitch({Key? key}) : super(key: key);
 
@@ -13,23 +13,33 @@ class MySwitch extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-              width: 90,
+              width: 70,
               height: 35,
               child: FittedBox(
                   fit: BoxFit.fill,
-                  child: LiteRollingSwitch(
-                    value: true,
-                    textOn: "Light",
-                    textOff: "Dark",
-                    colorOn: Colors.grey.shade500,
-                    colorOff: Colors.grey.shade900,
-                    iconOn: Icons.wb_sunny,
-                    iconOff: Icons.nightlight,
-                    textSize: 18.0,
-                    onChanged: (bool position) {
-                      context.read<ThemeBloc>().add(SwitchThemeEvent());
-                    },
-                  )))
+                  child: FlutterSwitch(
+                    width: 125.0,
+                    height: 55.0,
+                    valueFontSize: 25.0,
+                    toggleSize: 45.0,
+                    value: status,
+                    borderRadius: 30.0,
+                    padding: 8.0,
+                    showOnOff: false,
+                    onToggle: (bool position) {
+                        context.read<ThemeBloc>().add(SwitchThemeEvent());
+                        status = position;
+                      },
+                    activeIcon: Icon(Icons.wb_sunny, color: Colors.yellow,),
+                    activeToggleColor: Colors.black,
+                    inactiveColor: Colors.white38,
+                    activeColor: Colors.white38,
+                    inactiveIcon: Icon(Icons.nightlight, color: Colors.white,),
+                    inactiveToggleColor:  Colors.grey.shade900,
+                    activeSwitchBorder: Border.all(color: Colors.grey.shade900,width: 3),
+                    inactiveSwitchBorder: Border.all(color: Colors.grey.shade900,width: 3),
+                  )
+                  ))
         ]);
   }
 }
