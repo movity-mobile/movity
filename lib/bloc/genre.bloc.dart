@@ -39,7 +39,7 @@ class GenreBloc extends Bloc<GenresEvent,GenreState>{
         lastEvent=event;
         emit(SearchGenresLoadingState());
         print("search...................");
-        SearchGenreList response = await genresRepository.searchGenres();
+        SearchGenreList response = (await genresRepository.searchMoviesByGenre("", 0)) as SearchGenreList;
         genres.addAll(response.genres);
         print(genres);
         emit(SearchGenreSuccessState(genres: genres));

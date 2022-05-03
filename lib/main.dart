@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context)=>ThemeBloc(),),
           BlocProvider(create: (context)=>MovieBloc(),),
-          BlocProvider(create: (context)=>GenreBloc(),),
         ],
         child: const RootView(),
 
