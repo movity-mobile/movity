@@ -54,13 +54,13 @@ static final lightTheme = ThemeData(
 
 class InitialTheme extends ThemeState {
   InitialTheme()
-      : super(MyThemes.darkTheme);
+      : super(MyThemes.lightTheme);
 }
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   int index = 0;
   List<ThemeData> themes = [
-    MyThemes.lightTheme,MyThemes.darkTheme
+    MyThemes.darkTheme,MyThemes.lightTheme
     ];
 
   ThemeBloc() : super(InitialTheme()) {

@@ -1,13 +1,12 @@
 import 'package:movity_app/model/genre.model.dart';
 
-class SearchGenreList{
+class SearchGenreList {
   List<Genre> genres;
-  SearchGenreList(this.genres);
 
-  SearchGenreList.fromJson(Map<String,dynamic> json) :
+  SearchGenreList({required this.genres});
 
-        genres = (json['genres'] as List).map((e) =>
-            Genre.fromJson(e)).toList();
+  SearchGenreList.fromJson(Map<String, dynamic> listGenres)
+      : genres = (listGenres['genres'] as List).map(
+          (user) => Genre.fromJson(user)
+  ).toList();
 }
-
-

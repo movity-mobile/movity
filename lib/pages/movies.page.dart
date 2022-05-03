@@ -51,6 +51,7 @@ class MoviesPage extends StatelessWidget {
               ],
             ),
           ),
+
           Expanded(child: BlocBuilder<MovieBloc, MoviesState>(
             builder: (context, state) {
               return Builder(
