@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
+import 'package:movity_app/pages/movieDetailsPage.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
 import 'package:movity_app/widgets/switch.widget.dart';
 import '../widgets/drawar.widget.dart';
@@ -142,8 +143,8 @@ class MoviesPage extends StatelessWidget {
                                       ),
                                       /*Image.network(
 
-                  "https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}"
 
+                    "https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}"
               ),*/
                                     ),
                                   ),

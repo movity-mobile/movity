@@ -1,3 +1,4 @@
+import 'package:movity_app/bloc/movie.details.bloc.dart';
 import 'package:movity_app/pages/Search.page.dart';
 import 'package:movity_app/pages/home.page.dart';
 import 'package:movity_app/pages/movies.page.dart';
@@ -24,7 +25,11 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context)=>ThemeBloc(),),
           BlocProvider(create: (context)=>MovieBloc(),),
-        ],
+          BlocProvider(create: (context)=>GenreBloc(),),
+          BlocProvider(create: (context)=>MovieDetailsBloc())
+
+          
+          
         child: const RootView(),
 
     );
