@@ -16,16 +16,16 @@ class RootView extends StatelessWidget {
     return BlocBuilder<ThemeBloc,ThemeState>(
         builder: (context,state){
           return MaterialApp(
-            themeMode: ThemeMode.system,
+            //themeMode: ThemeMode.system,
             theme: state.theme,
             darkTheme: state.theme,
             debugShowCheckedModeBanner: false,
             routes: {
               "/":(context)=>const HomePage(),
-              "/QR":(context)=>const QrGeneratorPage(),
-              "/scanQR": (context)=> const QrScannerPage(),
-              "/search": (context)=> const SearchPage(),
-              "/movies":(context)=>const MoviesPage()
+              "/qrGenerator":(context)=>const QrGeneratorPage(),
+              "/qrScanner": (context)=> QrScannerPage(),
+              "/search": (context)=> const MoviesPage(),
+              "/movies":(context)=> SearchPage()
             },
             initialRoute: "/",
           );

@@ -7,7 +7,7 @@ import 'package:movity_app/repository/movie.repository.dart';
 abstract class GenresEvent{
 }
 class SearchGenreEvent extends GenresEvent{
-
+  SearchGenreEvent();
 }
 
 class GetGenderMoviesEvent extends GenresEvent{
@@ -30,19 +30,22 @@ class SearchGenresLoadingState extends GenreState {
 }
 class GenreBloc extends Bloc<GenresEvent,GenreState>{
   final MoviesRepository moviesRepository=MoviesRepository();
+  final GenresRepository genresRepository = GenresRepository();
   late GenresEvent lastEvent;
-  //List<Genre> genres=[];
+  List<Genre> genres=[];
   GenreBloc() : super(SearchGenreSuccessState(genres: [])){
-    on((GetGenderMoviesEvent event, emit) async {
-     /* try {
+    on((SearchGenreEvent event, emit) async {
+     try {
         lastEvent=event;
         emit(SearchGenresLoadingState());
-        SearchGenreList response = await genresRepository.searchGenres();
+        print("search...................");
+        SearchGenreList response = (await genresRepository.searchMoviesByGenre("", 0)) as SearchGenreList;
         genres.addAll(response.genres);
+        print(genres);
         emit(SearchGenreSuccessState(genres: genres));
       } catch(ex) {
         emit(SearchGenreErrorState(errorMessage: ex.toString()));
-      }*/
+      }
       emit(SearchGenresLoadingState());
       lastEvent=event;
       try{
