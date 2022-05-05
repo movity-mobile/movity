@@ -5,9 +5,15 @@ import 'package:movity_app/pages/qrGenerator.page.dart';
 import 'package:movity_app/pages/qrScanner.page.dart';
 
 import '../pages/home.page.dart';
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
+
   const MyDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[ Icon(Icons.home, size: 30),
@@ -21,13 +27,18 @@ class MyDrawer extends StatelessWidget {
       QrScannerPage(),
       SearchPage(),
     ];
+    int _page = 0;
     return CurvedNavigationBar(
         //color: Theme.of(context).primaryColor,
         backgroundColor: Colors.transparent,
         height: 60,
         animationCurve: Curves.easeInOut,
         animationDuration: Duration(milliseconds: 300),
-
+        onTap: (index) {
+          setState(() {
+            _page = index;
+          });
+        },
         items: items);
   }
 }
