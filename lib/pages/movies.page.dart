@@ -5,6 +5,7 @@ import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/pages/movieDetailsPage.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
 import 'package:movity_app/widgets/graphics.widget.dart';
+import 'package:movity_app/widgets/graphics404.widget.dart';
 import 'package:movity_app/widgets/switch.widget.dart';
 import '../widgets/drawar.widget.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
@@ -84,7 +85,7 @@ class MoviesPage extends StatelessWidget {
                       ]),
                     );
                   } else if (state is SearchMoviesSuccessState) {
-                    return LazyLoadScrollView(
+                    return state.movies.length!=0?LazyLoadScrollView(
                       onEndOfPage: () {
                         movieBloc.add(NextMoviesPageEvent());
                       },
@@ -207,7 +208,7 @@ class MoviesPage extends StatelessWidget {
                           },
                         ),
                       ),
-                    );
+                    ):Graphics404();
                   } else
                     return Container();
                 },
