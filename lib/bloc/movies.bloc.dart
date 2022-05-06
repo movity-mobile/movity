@@ -19,9 +19,12 @@ class SearchMoviesEvent extends MoviesEvent {
 class NextMoviesPageEvent extends MoviesEvent {
 }
 
-enum StateStatus { success, error, loading, none }
+enum StateStatus { none, success, error, loading }
 
 abstract class MoviesState {}
+
+class SearchMoviesNoneState extends MoviesState {
+}
 
 class SearchMoviesSuccessState extends MoviesState {
   List<Movie> movies = [];
@@ -47,7 +50,7 @@ class MovieBloc extends Bloc<MoviesEvent, MoviesState> {
   bool isGenre = false;
   List<Movie> movies = [];
 
-  MovieBloc() : super(SearchMoviesSuccessState(movies: [])) {
+  MovieBloc() : super(SearchMoviesNoneState()) {
     on((SearchMoviesEvent event, emit) async {
       try {
         currentPage = 1;
