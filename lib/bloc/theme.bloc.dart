@@ -33,6 +33,7 @@ class MyThemes {
       scaffoldBackgroundColor: Style.Colors.mainColor,
       primarySwatch: colorCustom,
       bottomAppBarColor: Colors.white,
+      canvasColor: Colors.white,
       //colorScheme: ColorScheme.dark(),
       iconTheme: new IconThemeData(
           color: Colors.white,
@@ -44,6 +45,7 @@ static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primarySwatch: colorCustom,
     //colorScheme: ColorScheme.light(),
+    canvasColor: Color(0xFF151C26),
     bottomAppBarColor: Colors.black,
     iconTheme: IconThemeData(
         color: Colors.white,

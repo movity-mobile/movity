@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/pages/movieDetailsPage.dart';
+import 'package:movity_app/widgets/discover_movies.widgets.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
 import 'package:movity_app/widgets/graphics.widget.dart';
 import 'package:movity_app/widgets/graphics404.widget.dart';
@@ -27,7 +28,7 @@ class MoviesPage extends StatelessWidget {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: Text("Movies"),
+        title: Text("Search"),
         actions: [MySwitch()],
       ),
       body: Column(
@@ -211,7 +212,7 @@ class MoviesPage extends StatelessWidget {
                       ),
                     ):Graphics404();
                   } else
-                    return Container();
+                    return DiscoverMovies();
                 },
               );
             },
