@@ -11,6 +11,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:movity_app/UI/theme.ui.dart' as Style;
 import 'dart:convert';
 
 class MoviesPage extends StatelessWidget {
@@ -55,7 +56,7 @@ class MoviesPage extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.search,
-                        color: Theme.of(context).primaryColor,
+                        color: Style.Colors.secondColor,
                       ),
                     )
                   ],
@@ -103,7 +104,7 @@ class MoviesPage extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return Container(
                               decoration: BoxDecoration(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Style.Colors.secondColor,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +113,7 @@ class MoviesPage extends StatelessWidget {
                                     height: 130,
                                     width: Get.width,
                                     decoration: BoxDecoration(
-                                      color: Theme.of(context).primaryColor,
+                                      color: Style.Colors.secondColor,
                                       borderRadius: BorderRadius.vertical(
                                           top: Radius.circular(20)),
                                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
+import 'package:movity_app/UI/theme.ui.dart'as Style;
 
 import '../widgets/drawar.widget.dart';
 
@@ -27,7 +28,7 @@ class Filter extends StatelessWidget {
                 .bodyText2!
                 .copyWith(color: Colors.white, fontSize: 14),
           ),
-          selectedColor: Theme.of(context).primaryColor,
+          selectedColor: Style.Colors.secondColor,
           elevation: 1,
           padding: EdgeInsets.symmetric(horizontal: 10),
           pressElevation: 5,

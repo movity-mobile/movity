@@ -21,7 +21,7 @@ class RootView extends StatelessWidget {
             darkTheme: state.theme,
             debugShowCheckedModeBanner: false,
             routes: {
-              "/":(context)=>const HomePage(),
+              "/":(context)=> HomePage(),
               "/qrGenerator":(context)=>const QrGeneratorPage(),
               "/qrScanner": (context)=> QrScannerPage(),
               "/search": (context)=> const MoviesPage(),
