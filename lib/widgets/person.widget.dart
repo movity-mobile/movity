@@ -94,7 +94,7 @@ class _PersonListState extends State<PersonList> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("No Actor")
+            Text("No Actor"),
           ],
         ),
       );
@@ -105,7 +105,7 @@ class _PersonListState extends State<PersonList> {
         child: ListView.builder(
             itemCount: persons.length,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
+            itemBuilder: (xecontext, index) {
               return Container(
                 width: 100.0,
                 padding: EdgeInsets.only(
