@@ -52,7 +52,7 @@ class _GenresScreenState extends State<GenresScreen> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: const <Widget>[
           SizedBox(
             height: 25.0,
             width: 25.0,

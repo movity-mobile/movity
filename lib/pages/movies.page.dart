@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
+import 'package:movity_app/model/movie.model.dart';
 import 'package:movity_app/pages/movieDetailsPage.dart';
+import 'package:movity_app/pages/movie_detail_screen.dart';
 import 'package:movity_app/widgets/discover_movies.widgets.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
 import 'package:movity_app/widgets/graphics.widget.dart';
@@ -14,8 +15,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+// ignore: library_prefixes
 import 'package:movity_app/UI/theme.ui.dart' as Style;
-import 'dart:convert';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({Key? key}) : super(key: key);
@@ -26,10 +27,10 @@ class MoviesPage extends StatelessWidget {
     TextEditingController _textEditingController = TextEditingController();
     _textEditingController.text = movieBloc.currentQuery;
     return Scaffold(
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       appBar: AppBar(
-        title: Text("Search"),
-        actions: [MySwitch()],
+        title: const Text("Search"),
+        actions: const [MySwitch()],
       ),
       body: Column(
         children: [
@@ -43,10 +44,10 @@ class MoviesPage extends StatelessWidget {
                       child: TextFormField(
                         controller: _textEditingController,
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                            contentPadding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
                             border: OutlineInputBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
+                                    const BorderRadius.all(Radius.circular(20)),
                                 borderSide: BorderSide(
                                     width: 1,
                                     color: Theme.of(context).primaryColor))),
@@ -57,14 +58,14 @@ class MoviesPage extends StatelessWidget {
                         context.read<MovieBloc>().add(
                             SearchMoviesEvent(_textEditingController.text, ""));
                       },
-                      icon: Icon(
+                      icon: const  Icon(
                         Icons.search,
                         color: Style.Colors.secondColor,
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Filter(),
               ],
             ),
@@ -83,20 +84,20 @@ class MoviesPage extends StatelessWidget {
                             onPressed: () {
                               movieBloc.add(movieBloc.lastEvent);
                             },
-                            child: Text("Retry"))
+                            child: const Text("Retry"))
                       ]),
                     );
                   } else if (state is SearchMoviesSuccessState) {
-                    return state.movies.length!=0?LazyLoadScrollView(
+                    return state.movies.isNotEmpty?
+                    LazyLoadScrollView(
                       onEndOfPage: () {
                         movieBloc.add(NextMoviesPageEvent());
                       },
                       child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: GridView.builder(
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                             const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 16,
                                   crossAxisSpacing: 16,
@@ -105,7 +106,20 @@ class MoviesPage extends StatelessWidget {
                           shrinkWrap: true,
                           primary: false,
                           itemBuilder: (context, index) {
-                            return Container(
+                            Movie movie =state.movies[index];
+                            
+                            return GestureDetector(
+                               onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          MovieDetailsPage(movie: movie),
+                                          //MovieDetailScreen(movie: movie),
+                                    ),
+                                  );
+                                },
+                                child: Container(
                               decoration: BoxDecoration(
                                   color: Style.Colors.secondColor,
                                   borderRadius: BorderRadius.circular(20)),
@@ -115,20 +129,23 @@ class MoviesPage extends StatelessWidget {
                                   Container(
                                     height: 130,
                                     width: Get.width,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Style.Colors.secondColor,
                                       borderRadius: BorderRadius.vertical(
                                           top: Radius.circular(20)),
                                     ),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.vertical(
+                                      borderRadius: const BorderRadius.vertical(
                                           top: Radius.circular(20)),
-                                      child: CachedNetworkImage(
+                                      child: 
+                                      CachedNetworkImage(
                                         imageUrl:
-                                            'https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}',
+                                            'https://image.tmdb.org/t/p/original/${state.movies[index].posterPath}',
                                         height:
-                                            MediaQuery.of(context).size.height,
-                                        width: double.infinity,
+                                            MediaQuery.of(context).size.height /
+                                                3,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         fit: BoxFit.cover,
                                         errorWidget: (context, url, error) =>
                                             Container(
@@ -136,7 +153,7 @@ class MoviesPage extends StatelessWidget {
                                               .size
                                               .height,
                                           height: double.infinity,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: AssetImage(
@@ -145,15 +162,11 @@ class MoviesPage extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      /*Image.network(
-
-
-                    "https://image.tmdb.org/t/p/original/${state.movies[index].backdropPath}"
-              ),*/
+                                    
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding:const EdgeInsets.all(8.0),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -170,7 +183,7 @@ class MoviesPage extends StatelessWidget {
                                           color: Colors.grey,
                                           fontSize: 13,
                                         ),
-                                        SizedBox(height: 2),
+                                        const SizedBox(height: 2),
                                         RatingBar.builder(
                                           initialRating: double.parse(state
                                               .movies[index].voteAverage
@@ -178,22 +191,20 @@ class MoviesPage extends StatelessWidget {
                                           minRating: 1,
                                           maxRating: 10,
                                           itemSize: 15,
-                                          // updateOnDrag: true,
                                           tapOnlyMode: true,
                                           direction: Axis.horizontal,
                                           allowHalfRating: true,
                                           itemCount: 5,
-                                          itemPadding: EdgeInsets.symmetric(
+                                          itemPadding: const EdgeInsets.symmetric(
                                               horizontal: 1),
-                                          itemBuilder: (context, _) => Icon(
+                                          itemBuilder: (context, _) => const Icon(
                                             Icons.star,
                                             color: Colors.amber,
                                           ),
                                           onRatingUpdate: (rating) {
-                                            print(rating);
                                           },
                                         ),
-                                        SizedBox(height: 2),
+                                        const SizedBox(height: 2),
                                         KText(
                                           text:
                                               '${state.movies[index].overview}',
@@ -206,13 +217,21 @@ class MoviesPage extends StatelessWidget {
                                   )
                                 ],
                               ),
+                            )
+
                             );
+                          
+                          
+                          
+                          
+                          
                           },
                         ),
                       ),
-                    ):Graphics404();
-                  } else
+                    ):const Graphics404();
+                  } else {
                     return DiscoverMovies();
+                  }
                 },
               );
             },

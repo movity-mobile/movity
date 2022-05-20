@@ -5,6 +5,7 @@ import 'package:movity_app/UI/theme.ui.dart' as Style;
 import 'package:movity_app/bloc/discover_movies_bloc.dart';
 import 'package:movity_app/model/discover_movie_response.model.dart';
 import 'package:movity_app/model/movie.model.dart';
+import 'package:movity_app/pages/movieDetailsPage.dart';
 import 'package:movity_app/widgets/graphics404.widget.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
@@ -84,7 +85,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
             moviesBloc..discoverMovies(page);
           },
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -95,7 +96,19 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
               shrinkWrap: true,
               primary: false,
               itemBuilder: (context, index) {
-                return Container(
+                Movie movie =list_movies![index];
+                return GestureDetector(
+                    onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          MovieDetailsPage(movie: movie),
+                                          //MovieDetailScreen(movie: movie),
+                                    ),
+                                  );
+                                },
+                  child:Container(
                   decoration: BoxDecoration(
                       color: Style.Colors.secondColor,
                       borderRadius: BorderRadius.circular(20)),
@@ -143,7 +156,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                               color: Colors.grey,
                               fontSize: 13,
                             ),
-                            SizedBox(height: 2),
+                            const SizedBox(height: 2),
                             RatingBar.builder(
                               initialRating: double.parse(
                                   list_movies![index].voteAverage.toString()),
@@ -164,7 +177,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                                 print(rating);
                               },
                             ),
-                            SizedBox(height: 2),
+                            const SizedBox(height: 2),
                             KText(
                               text: '${list_movies![index].overview}',
                               maxLines: 3,
@@ -176,7 +189,9 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                       )
                     ],
                   ),
+                )
                 );
+                
               },
             ),
           ));

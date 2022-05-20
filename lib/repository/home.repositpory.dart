@@ -1,4 +1,5 @@
 //import 'package:movieapp/model/cast_response.dart';
+import 'package:movity_app/model/actors_response.model.dart';
 import 'package:movity_app/model/genre_response.model.dart';
 //import 'package:movieapp/model/movie_detail_response.dart';
 import 'package:movity_app/model/movie_response.model.dart';
@@ -16,6 +17,7 @@ class HomeMovieRepository {
   var getGenresUrl = "$mainUrl/genre/movie/list";
   var getPersonsUrl = "$mainUrl/person/popular";
   var movieUrl = "$mainUrl/movie";
+  var getActors="$mainUrl/movie";
 
   Future<MovieResponse> getMovies() async {
     var params = {
@@ -74,6 +76,24 @@ class HomeMovieRepository {
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
       return MovieResponse.withError("$error");
+    }
+  }
+
+
+  Future<ActorsResponse> getCredits(int? movieId) async {
+    //
+      //https://api.themoviedb.org/3/movie/movie_id/credits?api_key=3fc73fc9f3cd7676a42b50bdf468abf3 => get actors
+     
+    var params = {"api_key": apiKey};
+    print("getCredits");
+    print(getActors+"/${movieId}/credits");
+    try {
+      Response response = await _dio.get(getActors+"/${movieId}/credits", queryParameters: params);
+      print(ActorsResponse.fromJson(response.data));
+      return ActorsResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return ActorsResponse.withError("$error");
     }
   }
 /*
