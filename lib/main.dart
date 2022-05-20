@@ -1,4 +1,4 @@
-//import 'package:movity_app/bloc/home/home_bloc.dart';
+//import 'package:movity_app/bloc/movies/home_bloc.dart';
 import 'package:movity_app/bloc/movie.details.bloc.dart';
 import 'package:movity_app/pages/Search.page.dart';
 import 'package:movity_app/pages/home.page.dart';
