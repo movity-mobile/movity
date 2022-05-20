@@ -6,7 +6,6 @@ import 'package:movity_app/bloc/discover_movies_bloc.dart';
 import 'package:movity_app/model/discover_movie_response.model.dart';
 import 'package:movity_app/model/movie.model.dart';
 import 'package:movity_app/pages/movieDetailsPage.dart';
-import 'package:movity_app/widgets/graphics.widget.dart';
 import 'package:movity_app/widgets/graphics404.widget.dart';
 import 'package:movity_app/widgets/kText.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
@@ -61,10 +60,10 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
             height: 25.0,
             width: 25.0,
             child:
-                Graphics() /*CircularProgressIndicator(
+               CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               strokeWidth: 4.0,
-            )*/
+            )
             ,
           )
         ],
@@ -130,20 +129,9 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                           child: CachedNetworkImage(
                             imageUrl:
                                 'https://image.tmdb.org/t/p/original/${list_movies![index].backdropPath}',
-                            height: MediaQuery.of(context).size.height,
+                            height: double.infinity,
                             width: double.infinity,
                             fit: BoxFit.cover,
-                            errorWidget: (context, url, error) => Container(
-                              width: MediaQuery.of(context).size.height,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'assets/images/img_not_found.jpg'),
-                                ),
-                              ),
-                            ),
                           ),
                           /*Image.network(
 

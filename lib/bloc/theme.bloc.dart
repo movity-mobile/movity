@@ -34,6 +34,7 @@ class MyThemes {
       primarySwatch: colorCustom,
       bottomAppBarColor: Colors.white,
       canvasColor: Colors.white,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       //colorScheme: ColorScheme.dark(),
       iconTheme: new IconThemeData(
           color: Colors.white,
@@ -44,6 +45,7 @@ class MyThemes {
 static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primarySwatch: colorCustom,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     //colorScheme: ColorScheme.light(),
     canvasColor: Color(0xFF151C26),
     bottomAppBarColor: Colors.black,
