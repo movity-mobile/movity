@@ -1,12 +1,5 @@
-//import 'package:movity_app/bloc/home/home_bloc.dart';
-import 'package:movity_app/bloc/movie.details.bloc.dart';
-import 'package:movity_app/pages/Search.page.dart';
-import 'package:movity_app/pages/home.page.dart';
-import 'package:movity_app/pages/movies.page.dart';
-import 'package:movity_app/pages/qrGenerator.page.dart';
-import 'package:movity_app/pages/qrScanner.page.dart';
-import 'UI/kToDark.UI.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
+import 'package:movity_app/bloc/moviedetailbloc/movie_detail_bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:movity_app/pages/root.view.page.dart';
@@ -27,7 +20,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context)=>ThemeBloc(),),
           BlocProvider(create: (context)=>MovieBloc(),),
           BlocProvider(create: (context)=>GenreBloc(),),
-          BlocProvider(create: (context)=>MovieDetailsBloc(),),
+          BlocProvider(create: (context)=>MovieDetailBloc(),)
           ],
         child: const RootView(),
 
