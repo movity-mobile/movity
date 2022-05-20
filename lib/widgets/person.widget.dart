@@ -23,7 +23,7 @@ class _PersonListState extends State<PersonList> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10.0, top: 20.0),
           child: Text("TRENDING ACTORS ON THIS WEEK", style: TextStyle(
             color: Style.Colors.titleColor,
@@ -31,7 +31,7 @@ class _PersonListState extends State<PersonList> {
             fontSize: 12.0
           ),),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5.0,
         ),
     StreamBuilder<PersonResponse>(
@@ -68,7 +68,7 @@ class _PersonListState extends State<PersonList> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children:const <Widget>[
           SizedBox(
             height : 25.0,
             width: 25.0,
@@ -84,7 +84,7 @@ class _PersonListState extends State<PersonList> {
 
   Widget _buildPersonsWidget(PersonResponse ? data) {
     List <Person>? persons = data?.persons;
-    if (persons!.length == 0) {
+    if (persons!.isEmpty) {
       return Container(
         width: MediaQuery
             .of(context)
@@ -93,7 +93,7 @@ class _PersonListState extends State<PersonList> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Text("No Actor")
           ],
         ),
@@ -101,14 +101,14 @@ class _PersonListState extends State<PersonList> {
     } else {
       return Container(
         height: 130.0,
-        padding: EdgeInsets.only(left: 10.0),
+        padding: const EdgeInsets.only(left: 10.0),
         child: ListView.builder(
             itemCount: persons.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Container(
                 width: 100.0,
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                     top: 10.0,
                     right: 10.0
                 ),
@@ -119,11 +119,11 @@ class _PersonListState extends State<PersonList> {
                     Container(
                         width: 70.0,
                       height: 70.0,
-                      decoration:  BoxDecoration(
+                      decoration:  const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Style.Colors.secondColor
                       ),
-                      child: Icon(FontAwesomeIcons.users, color: Colors.white,),
+                      child: const Icon(FontAwesomeIcons.users, color: Colors.white,),
                     ) :
                     Container(
                       width: 70.0,
@@ -138,12 +138,12 @@ class _PersonListState extends State<PersonList> {
                         )
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     Text(persons[index].name,
                     maxLines: 2,
-                      style: TextStyle(
+                      style: const TextStyle(
                         height: 1.4,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -151,10 +151,10 @@ class _PersonListState extends State<PersonList> {
                       ),
 
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3.0,
                     ),
-                    Text("Trending for ${persons[index].known}", style: TextStyle(
+                    Text("Trending for ${persons[index].known}", style:const TextStyle(
                       color: Style.Colors.titleColor,
                       fontWeight: FontWeight.w400,
                       fontSize: 7.0

@@ -13,17 +13,20 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:get/get.dart';
 
 class DiscoverMovies extends StatefulWidget {
+  const DiscoverMovies({Key? key}) : super(key: key);
+
   @override
   State<DiscoverMovies> createState() => _DiscoverMoviesState();
 }
 
 class _DiscoverMoviesState extends State<DiscoverMovies> {
   int page=1;
+  // ignore: non_constant_identifier_names
   List<Movie>? list_movies=[];
   @override
   void initState() {
     super.initState();
-    moviesBloc..discoverMovies(page);
+    moviesBloc.discoverMovies(page);
   }
 
   @override
@@ -32,8 +35,6 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
         stream: moviesBloc.subject.stream,
         builder: (context, AsyncSnapshot<DiscoverMovieResponse> snapshot) {
           if (snapshot.hasData) {
-            //&& snapshot.data?.error.length > 0
-
             return _buildMoviesWidget(snapshot.data);
           } else if (snapshot.hasError) {
             return _buildErrorWidget(snapshot.data?.error);
@@ -56,15 +57,12 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: const <Widget>[
           SizedBox(
             height: 25.0,
             width: 25.0,
             child:
-                Graphics() /*CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              strokeWidth: 4.0,
-            )*/
+                Graphics()
             ,
           )
         ],
@@ -75,20 +73,21 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
   Widget _buildMoviesWidget(DiscoverMovieResponse? data) {
     List<Movie>? movies = data?.movies;
     list_movies?.addAll(movies!);
-    if (list_movies!.length == 0) {
+    if (list_movies!.isEmpty) {
+      // ignore: avoid_unnecessary_containers
       return Container(
-        child: Graphics404(),
+        child: const Graphics404(),
       );
-    } else
+    } else {
       return LazyLoadScrollView(
           onEndOfPage: () {
             page++;
-            moviesBloc..discoverMovies(page);
+            moviesBloc.discoverMovies(page);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
@@ -112,21 +111,21 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                   child:Container(
                   decoration: BoxDecoration(
                       color: Style.Colors.secondColor,
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius:  BorderRadius.circular(20)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         height: 130,
                         width: Get.width,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Style.Colors.secondColor,
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(20)),
                         ),
                         child: ClipRRect(
                           borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(20)),
+                              const BorderRadius.vertical(top: Radius.circular(20)),
                           child: CachedNetworkImage(
                             imageUrl:
                                 'https://image.tmdb.org/t/p/original/${list_movies![index].backdropPath}',
@@ -136,11 +135,10 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                             errorWidget: (context, url, error) => Container(
                               width: MediaQuery.of(context).size.height,
                               height: double.infinity,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'assets/images/img_not_found.jpg'),
+                                  image: AssetImage('assets/images/img_not_found.jpg'),
                                 ),
                               ),
                             ),
@@ -153,7 +151,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -180,12 +178,13 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                               direction: Axis.horizontal,
                               allowHalfRating: true,
                               itemCount: 5,
-                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
-                              itemBuilder: (context, _) => Icon(
+                              itemPadding: const EdgeInsets.symmetric(horizontal: 1),
+                              itemBuilder: (context, _) => const Icon(
                                 Icons.star,
                                 color: Colors.amber,
                               ),
                               onRatingUpdate: (rating) {
+                                // ignore: avoid_print
                                 print(rating);
                               },
                             ),
@@ -207,5 +206,6 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
               },
             ),
           ));
+    }
   }
 }

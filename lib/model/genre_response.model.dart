@@ -7,7 +7,7 @@ class GenreResponse {
   GenreResponse(this.genres, this.error);
 
   GenreResponse.fromJson(Map<String, dynamic> json)
-      : genres = (json["genres"] as List).map((i)=> new MovieGenre.fromJson(i)).toList(),
+      : genres = (json["genres"] as List).map((i)=> MovieGenre.fromJson(i)).toList(),
   error = "";
   GenreResponse.withError(String errorValue)
   : genres = [],
