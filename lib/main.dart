@@ -1,11 +1,3 @@
-//import 'package:movity_app/bloc/movies/home_bloc.dart';
-import 'package:movity_app/bloc/movie.details.bloc.dart';
-import 'package:movity_app/pages/Search.page.dart';
-import 'package:movity_app/pages/home.page.dart';
-import 'package:movity_app/pages/movies.page.dart';
-import 'package:movity_app/pages/qrGenerator.page.dart';
-import 'package:movity_app/pages/qrScanner.page.dart';
-import 'UI/kToDark.UI.dart';
 import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/moviedetailbloc/movie_detail_bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
