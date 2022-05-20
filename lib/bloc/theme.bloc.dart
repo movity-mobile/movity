@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:movity_app/UI/kToDark.UI.dart';
+import 'package:movity_app/UI/theme.ui.dart'as Style;
+
 
 Map<int, Color> color =
 {
@@ -25,16 +26,18 @@ class ThemeState {
 
   ThemeState(this.theme);
 }
-MaterialColor colorCustom = MaterialColor(0xFFB74C3A, color);
+MaterialColor colorCustom = MaterialColor(0xFF151C26, color);
 
 class MyThemes {
   static final darkTheme = ThemeData(
-      scaffoldBackgroundColor: Colors.grey.shade900,
+      scaffoldBackgroundColor: Style.Colors.mainColor,
       primarySwatch: colorCustom,
       bottomAppBarColor: Colors.white,
+      canvasColor: Colors.white,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       //colorScheme: ColorScheme.dark(),
       iconTheme: new IconThemeData(
-          color: Colors.black,
+          color: Colors.white,
           size: 30.0
       ),
       primaryTextTheme:
@@ -42,7 +45,9 @@ class MyThemes {
 static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primarySwatch: colorCustom,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     //colorScheme: ColorScheme.light(),
+    canvasColor: Color(0xFF151C26),
     bottomAppBarColor: Colors.black,
     iconTheme: IconThemeData(
         color: Colors.white,
