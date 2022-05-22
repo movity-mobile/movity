@@ -43,6 +43,7 @@ class MoviesPage extends StatelessWidget {
                       child: TextFormField(
                         controller: _textEditingController,
                         decoration: InputDecoration(
+                            hintText:'Type movie title....',
                             contentPadding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
                             border: OutlineInputBorder(
                                 borderRadius:

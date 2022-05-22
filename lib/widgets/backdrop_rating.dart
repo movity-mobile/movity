@@ -67,7 +67,11 @@ class BackdropAndRating extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/star_fill.svg"),
+                        const Icon(
+                          CupertinoIcons.star_fill,
+                          color: Style.Colors.secondColor,
+                          size: 24.0,
+                        ),
                        const SizedBox(height: kDefaultPadding / 4),
                         RichText(
                           text: TextSpan(
@@ -78,16 +82,14 @@ class BackdropAndRating extends StatelessWidget {
                                 style:const TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w600),
                               ),
-                             const TextSpan(text: "10\n"),
-                              TextSpan(
-                                text: "${movie.voteCount}",
-                                style:const TextStyle(color: kTextLightColor),
-                              ),
+                              const TextSpan(text: "10"),
                             ],
                           ),
                         ),
                       ],
                     ),
+                    
+                    
                     // Release date
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -105,9 +107,14 @@ class BackdropAndRating extends StatelessWidget {
                     ),
                     // Popularity
                      Column(
+
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/popularity.svg"),
+                        const Icon(
+                          CupertinoIcons.sparkles,
+                          color: Style.Colors.secondColor,
+                          size: 27.0,
+                        ),
                         const SizedBox(height: kDefaultPadding / 4),
                         Text("${movie.popularity}",
                             style: Theme.of(context).textTheme.bodyText2),

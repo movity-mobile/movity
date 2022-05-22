@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
+import 'package:movity_app/UI/theme.ui.dart' as Style;
+
 class GenreCard extends StatelessWidget {
   final String genre;
 
@@ -16,12 +18,29 @@ class GenreCard extends StatelessWidget {
         vertical: kDefaultPadding / 4, // 5 padding top and bottom
       ),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black26),
+        color:Style.Colors.secondColor,
+        border: Border.all(
+          color: Style.Colors.secondColor
+        ),
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  offset: const Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+                BoxShadow(
+                  color: Colors.white,
+                  offset: const Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
       ),
       child: Text(
         genre,
-        style: TextStyle(color: kTextColor.withOpacity(0.8), fontSize: 16),
+        style: TextStyle(color: Colors.white, fontSize: 16),
       ),
     );
   }
