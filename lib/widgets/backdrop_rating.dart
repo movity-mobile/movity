@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movity_app/model/movie.model.dart';
+import 'package:movity_app/UI/theme.ui.dart' as Style;
 
 import '../../../constants.dart';
 
@@ -90,7 +92,12 @@ class BackdropAndRating extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/date.svg"),
+                       const Icon(
+                          CupertinoIcons.calendar,
+                          color: Style.Colors.secondColor,
+                          size: 24.0,
+                        ),
+                                            //SvgPicture.asset("assets/icons/date.svg"),
                         const SizedBox(height: kDefaultPadding / 4),
                         Text("${movie.releaseDate}",
                             style: Theme.of(context).textTheme.bodyText2),
