@@ -12,16 +12,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Style.Colors.mainColor,
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       appBar: AppBar(
         backgroundColor: Style.Colors.mainColor,
         centerTitle: true,
-        title: Text("Movity App"),
+        title: const Text("Movity App"),
       ),
       body: ListView(
         children : <Widget>[
           NowPlaying(),
-          GenresScreen(),
+          const GenresScreen(),
           PersonList(),
           TopMovies(),
 

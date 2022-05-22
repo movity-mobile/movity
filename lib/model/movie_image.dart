@@ -8,8 +8,9 @@ class MovieImage extends Equatable {
   const MovieImage({this.backdrops, this.posters});
 
   factory MovieImage.fromJson(Map<String, dynamic> result) {
+    // ignore: unnecessary_null_comparison
     if (result == null) {
-      return MovieImage();
+      return const MovieImage();
     }
 
     return MovieImage(
