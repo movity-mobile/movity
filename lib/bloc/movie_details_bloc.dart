@@ -1,15 +1,15 @@
-import 'package:movity_app/model/actors_response.model.dart';
-import 'package:movity_app/repository/home.repositpory.dart';
+import 'package:movity_app/model/movie_detail.dart';
+import 'package:movity_app/repository/movie.details.repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class ActorsListBloc{
-  final HomeMovieRepository _repository = HomeMovieRepository();
-  final BehaviorSubject<ActorsResponse> _subject =
-  BehaviorSubject<ActorsResponse>();
+class MovieDetailsBloc{
+  final MovieDetailsRepository _repository = MovieDetailsRepository();
+  final BehaviorSubject<MovieDetail> _subject =
+  BehaviorSubject<MovieDetail>();
 
 
-  getCredits(int? movieId) async {
-    ActorsResponse response = await _repository.getCredits(movieId);
+  getMovieDetails(int? movieId) async {
+    MovieDetail response = await _repository.getMovieDetail(movieId);
     _subject.sink.add(response);
   }
 
@@ -17,7 +17,7 @@ class ActorsListBloc{
     _subject.close();
   }
 
-  BehaviorSubject<ActorsResponse> get subject => _subject;
+  BehaviorSubject<MovieDetail> get subject => _subject;
 }
 
-final actorBloc = ActorsListBloc();
+final movieDetailsBloc = MovieDetailsBloc();

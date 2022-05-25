@@ -137,7 +137,7 @@ class _actorListState extends State<actorList> {
                         shape: BoxShape.circle,
                         color: Style.Colors.secondColor
                       ),
-                      child: const Icon(FontAwesomeIcons.users, color: Colors.white,),
+                      child: const Icon(FontAwesomeIcons.user, color: Colors.white,),
                     ) :
                     Container(
                       width: 70.0,

@@ -1,4 +1,5 @@
 import 'package:movity_app/model/cast_list.dart';
+import 'package:movity_app/model/genre.model.dart';
 import 'package:movity_app/model/movie_image.dart';
 
 class MovieDetail {
@@ -13,6 +14,8 @@ class MovieDetail {
   final String? runtime;
   final String? voteAverage;
   final String? voteCount;
+  final String? popularity;
+  //final List<Genre>? genres;
 
   late String? trailerId;
 
@@ -31,7 +34,10 @@ class MovieDetail {
       this.releaseDate,
       this.runtime,
       this.voteAverage,
-      this.voteCount});
+      this.voteCount,
+      this.popularity,
+     // this.genres
+      });
 
   factory MovieDetail.fromJson(dynamic json) {
     if (json == null) {
@@ -49,6 +55,11 @@ class MovieDetail {
         releaseDate: json['release_date'],
         runtime: json['runtime'].toString(),
         voteAverage: json['vote_average'].toString(),
-        voteCount: json['vote_count'].toString());
+        voteCount: json['vote_count'].toString(),
+        popularity : json['popularity'].toString(),
+       // genres:  (json["genres"] as List).map((i)=> Genre.fromJson(i)).toList(),
+        );
+        
+
   }
 }

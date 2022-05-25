@@ -13,7 +13,7 @@ class MovieDetailsRepository{
 
 
 
-Future<MovieDetail> getMovieDetail(int movieId) async {
+Future<MovieDetail> getMovieDetail(int? movieId) async {
     try {
       final response = await _dio.get('$baseUrl/movie/$movieId?$apiKey');
       MovieDetail movieDetail = MovieDetail.fromJson(response.data);
@@ -31,7 +31,7 @@ Future<MovieDetail> getMovieDetail(int movieId) async {
     }
   }
 
-  Future<String> getYoutubeId(int id) async {
+  Future<String> getYoutubeId(int? id) async {
     try {
       final response = await _dio.get('$baseUrl/movie/$id/videos?$apiKey');
       var youtubeId = response.data['results'][0]['key'];
@@ -42,7 +42,7 @@ Future<MovieDetail> getMovieDetail(int movieId) async {
     }
   }
 
-  Future<MovieImage> getMovieImage(int movieId) async {
+  Future<MovieImage> getMovieImage(int? movieId) async {
     try {
       final response = await _dio.get('$baseUrl/movie/$movieId/images?$apiKey');
       return MovieImage.fromJson(response.data);
@@ -52,7 +52,7 @@ Future<MovieDetail> getMovieDetail(int movieId) async {
     }
   }
 
-  Future<List<Cast>> getCastList(int movieId) async {
+  Future<List<Cast>> getCastList(int? movieId) async {
     try {
       final response =
           await _dio.get('$baseUrl/movie/$movieId/credits?$apiKey');

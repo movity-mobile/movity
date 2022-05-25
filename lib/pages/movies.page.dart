@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/model/movie.model.dart';
+import 'package:movity_app/pages/movie.details.page.dart';
 import 'package:movity_app/pages/movieDetailsPage.dart';
 import 'package:movity_app/widgets/discover_movies.widgets.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
@@ -114,7 +115,8 @@ class MoviesPage extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          MovieDetailsPage(movie: movie),
+                                          //MovieDetailsPage(movie: movie),
+                                          MovieDetails(movieId: movie.id,movie: movie,)
                                           //MovieDetailScreen(movie: movie),
                                     ),
                                   );

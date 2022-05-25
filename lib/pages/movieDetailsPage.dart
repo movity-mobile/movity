@@ -23,9 +23,9 @@ class MovieDetailsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-           BackdropAndRating(size: size, movie: movie),
+           //BackdropAndRating(size: size, movie: movie),
            const SizedBox(height: kDefaultPadding / 2),
-           MovieTitle(movie: movie),
+           //MovieTitle(movie: movie),
            Genres(movie: movie),
             const Padding(
               padding: EdgeInsets.symmetric(

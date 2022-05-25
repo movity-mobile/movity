@@ -6,15 +6,14 @@ import '../../../constants.dart';
 class MovieTitle extends StatelessWidget {
   const MovieTitle({
     Key? key,
-    required this.movie,
+    required this.originalTitle,
   }) : super(key: key);
 
-  final Movie movie;
-
+  final String originalTitle;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(kDefaultPadding),
+      padding: const EdgeInsets.all(kDefaultPadding),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -22,28 +21,21 @@ class MovieTitle extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  '${movie.originalTitle}',
+                  '${originalTitle}',
                   style: Theme.of(context).textTheme.headline5,
                 ),
                 const SizedBox(height: kDefaultPadding / 2),
+                 /*
                  Row(
                   children: <Widget>[
                     Text(
-                      'Text 1',
+                      '${runtime} min',
                       style: TextStyle(color: kTextLightColor),
                     ),
                     SizedBox(width: kDefaultPadding),
-                    Text(
-                      "Text 2",
-                      style: TextStyle(color: kTextLightColor),
-                    ),
-                    SizedBox(width: kDefaultPadding),
-                    Text(
-                      "Text 3",
-                      style: TextStyle(color: kTextLightColor),
-                    ),
+                 
                   ],
-                )
+                )*/
               ],
             ),
           ),
