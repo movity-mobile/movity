@@ -129,7 +129,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                           child: CachedNetworkImage(
                             imageUrl:
                                 'https://image.tmdb.org/t/p/original/${list_movies![index].backdropPath}',
-                            height: MediaQuery.of(context).size.height,
+                            height: double.infinity,
                             width: double.infinity,
                             fit: BoxFit.cover,
                             errorWidget: (context, url, error) => Container(
