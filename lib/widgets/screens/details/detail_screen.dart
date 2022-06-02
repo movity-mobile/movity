@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movity_app/constants/constants.dart';
-import 'package:movity_app/model/movie_model.dart';
+import 'package:movity_app/model/movie.model.dart';
 import 'package:movity_app/widgets/screens/details/components/background.dart';
 import 'package:movity_app/widgets/screens/details/components/buy_button.dart';
 import 'package:movity_app/widgets/screens/details/components/costom_back_button.dart';
@@ -11,12 +11,11 @@ import 'package:rubber/rubber.dart';
 
 class DetailScreen extends StatefulWidget {
 
-  final MovieModel movie;
 
   final Size size;
+  final Movie movie;
 
-
-  DetailScreen({required this.movie, required this.size});
+  DetailScreen({ required this.size, required this.movie});
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
@@ -56,13 +55,13 @@ class _DetailScreenState extends State<DetailScreen>
         alignment: Alignment.center,
         children: [
           //Background movie image
-          Background(background: widget.movie.image),
+          Background(background: NetworkImage('https://image.tmdb.org/t/p/original/${widget.movie.backdropPath}')),
 
           //Buttom sheet
           DetailRubberSheet(widget.movie, rubberSheetScrollController, rubberAnimationSheetController,),
 
           //Buy button
-          BuyButton(widget.movie.name),
+          //BuyButton(widget.movie.name),
 
           //Back button
           CustomBackButton(context),

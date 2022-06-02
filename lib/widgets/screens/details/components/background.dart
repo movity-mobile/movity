@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movity_app/constants/constants.dart';
 
 class Background extends StatefulWidget {
-  final Image background;
-
+  final NetworkImage background;
   Background({required this.background});
 
   @override
@@ -27,10 +26,10 @@ class _BackgroundState extends State<Background> {
         child: Stack(
           children: [
             Image(
-              image: widget.background.image,
+              image: widget.background,
               width: size.width,
               height: size.height,
-              fit: BoxFit.cover,
+              //fit: BoxFit.cover,
             ),
             Container(
               width: size.width,
