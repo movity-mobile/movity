@@ -137,7 +137,7 @@ class _MovieIndexState extends State<MovieIndex> {
             onTap: () =>
                 Navigator.push(context, PageRouteBuilder(
                     pageBuilder:(context, a1, a2) => DetailScreen(
-                      movie: movieData.movieList[widget.index],
+                      movie: widget.list_movies[widget.index],
                       size: size,
                     )
                 )),
@@ -148,7 +148,7 @@ class _MovieIndexState extends State<MovieIndex> {
                   color: secondary,
                   borderRadius: BorderRadius.circular(10.0)
               ),
-              child: Center(child: Text('BUY TICKET', style: TextStyle(
+              child: Center(child: Text('MORE INFOS', style: TextStyle(
                 color: white,
                 fontWeight: FontWeight.bold,
               ),)),
