@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movity_app/UI/theme.ui.dart' as Style;
 import 'package:movity_app/model/movie.model.dart';
 
 import '../../../constants.dart';
@@ -65,23 +66,25 @@ class BackdropAndRating extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/star_fill.svg"),
+                       const Icon(
+                            CupertinoIcons.star_fill,
+                            color: Style.Colors.secondColor,
+                            size: 24.0,
+                          ),
+
                        const SizedBox(height: kDefaultPadding / 4),
                         RichText(
                           text: TextSpan(
                             style: const TextStyle(color: Colors.black),
                             children: [
-                              TextSpan(
-                                text: "${movie.voteAverage}/",
-                                style:const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600),
-                              ),
-                             const TextSpan(text: "10\n"),
-                              TextSpan(
-                                text: "${movie.voteCount}",
-                                style:const TextStyle(color: kTextLightColor),
-                              ),
-                            ],
+                                TextSpan(
+                                  text: "${movie.voteAverage}/",
+                                  style:const TextStyle(
+                                      fontSize: 16, fontWeight: FontWeight.w600),
+                                ),
+                                const TextSpan(text: "10"),
+                              ],
+
                           ),
                         ),
                       ],
@@ -90,7 +93,13 @@ class BackdropAndRating extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/date.svg"),
+                        
+                         const Icon(
+                            CupertinoIcons.calendar,
+                            color: Style.Colors.secondColor,
+                            size: 24.0,
+                          ),
+
                         const SizedBox(height: kDefaultPadding / 4),
                         Text("${movie.releaseDate}",
                             style: Theme.of(context).textTheme.bodyText2),
@@ -100,7 +109,12 @@ class BackdropAndRating extends StatelessWidget {
                      Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        SvgPicture.asset("assets/icons/popularity.svg"),
+                        const Icon(
+                            CupertinoIcons.sparkles,
+                            color: Style.Colors.secondColor,
+                            size: 27.0,
+                          ),
+
                         const SizedBox(height: kDefaultPadding / 4),
                         Text("${movie.popularity}",
                             style: Theme.of(context).textTheme.bodyText2),
@@ -114,7 +128,7 @@ class BackdropAndRating extends StatelessWidget {
             ),
           ),
           // Back Button
-          SafeArea(child: BackButton()),
+          const SafeArea(child: BackButton()),
         ],
       ),
     );

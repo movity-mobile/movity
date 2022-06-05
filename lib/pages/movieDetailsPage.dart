@@ -19,7 +19,9 @@ class MovieDetailsPage extends StatelessWidget {
    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Style.Colors.mainColor,
       body: SingleChildScrollView(
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -35,9 +37,9 @@ class MovieDetailsPage extends StatelessWidget {
               child: Text(
                 "Movie Summary",
                 style: TextStyle(
-              color: Style.Colors.titleColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 12.0
+              color: Style.Colors.secondColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 18
             ),
               ),
             ),
@@ -46,7 +48,7 @@ class MovieDetailsPage extends StatelessWidget {
               child: Text(
                 movie.overview.toString(),
                 style: const TextStyle(
-                 color:Style.Colors.mainColor
+                 color:Colors.white
                 ),
               ),
             ),

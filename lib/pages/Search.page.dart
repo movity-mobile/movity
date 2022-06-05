@@ -30,12 +30,12 @@ class _SearchPageState extends State<SearchPage> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Movies',
         ),
-        actions: [MySwitch()],
+        actions: const [MySwitch()],
       ),
       body: HomeScreen()/*Stack(
         alignment: Alignment.bottomCenter,

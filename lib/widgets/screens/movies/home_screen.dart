@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: const <Widget>[
           SizedBox(
             height: 25.0,
             width: 25.0,
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return Container(
         child: Graphics404(),
       );
-    } else
+    } else {
       return Scaffold(
         backgroundColor: black,
         body: Stack(
@@ -104,5 +104,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       );
+    }
   }
 }
