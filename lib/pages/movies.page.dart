@@ -7,12 +7,12 @@ import 'package:movity_app/widgets/discover_movies.widgets.dart';
 import 'package:movity_app/widgets/filter.widget.dart';
 import 'package:movity_app/widgets/graphics.widget.dart';
 import 'package:movity_app/widgets/graphics404.widget.dart';
+import 'package:movity_app/widgets/stars_rating.dart';
 import 'package:movity_app/widgets/switch.widget.dart';
 import '../widgets/drawar.widget.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movity_app/widgets/kText.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 // ignore: library_prefixes
 import 'package:movity_app/UI/theme.ui.dart' as Style;
@@ -42,14 +42,16 @@ class MoviesPage extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         controller: _textEditingController,
-                        decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
+                        decoration: const InputDecoration(
+                          hintStyle: TextStyle(color:Style.Colors.mainColor ),
+                            contentPadding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                             border: OutlineInputBorder(
+                              
                                 borderRadius:
-                                    const BorderRadius.all(Radius.circular(20)),
+                                    BorderRadius.all(Radius.circular(20)),
                                 borderSide: BorderSide(
                                     width: 1,
-                                    color: Theme.of(context).primaryColor))),
+                                    color:Style.Colors.mainColor))),
                       ),
                     ),
                     IconButton(
@@ -182,26 +184,8 @@ class MoviesPage extends StatelessWidget {
                                           fontSize: 13,
                                         ),
                                         const SizedBox(height: 2),
-                                        RatingBar.builder(
-                                          initialRating: double.parse(state
-                                              .movies[index].voteAverage
-                                              .toString()),
-                                          minRating: 1,
-                                          maxRating: 10,
-                                          itemSize: 15,
-                                          tapOnlyMode: true,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          itemCount: 5,
-                                          itemPadding: const EdgeInsets.symmetric(
-                                              horizontal: 1),
-                                          itemBuilder: (context, _) => const Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                          ),
-                                          onRatingUpdate: (rating) {
-                                          },
-                                        ),
+                                        StarsRating(state.movies[index].voteAverage),
+                                       
                                         const SizedBox(height: 2),
                                         KText(
                                           text:

@@ -14,7 +14,7 @@ class MovieTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(kDefaultPadding),
+      padding: const EdgeInsets.all(kDefaultPadding),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -23,27 +23,15 @@ class MovieTitle extends StatelessWidget {
               children: <Widget>[
                 Text(
                   '${movie.originalTitle}',
-                  style: Theme.of(context).textTheme.headline5,
+                  style:const TextStyle(
+                        height: 1.4,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26
+                      ),
+                  
                 ),
-                const SizedBox(height: kDefaultPadding / 2),
-                 Row(
-                  children: <Widget>[
-                    Text(
-                      'Text 1',
-                      style: TextStyle(color: kTextLightColor),
-                    ),
-                    SizedBox(width: kDefaultPadding),
-                    Text(
-                      "Text 2",
-                      style: TextStyle(color: kTextLightColor),
-                    ),
-                    SizedBox(width: kDefaultPadding),
-                    Text(
-                      "Text 3",
-                      style: TextStyle(color: kTextLightColor),
-                    ),
-                  ],
-                )
+               // const SizedBox(height: kDefaultPadding / 2),
               ],
             ),
           ),

@@ -39,7 +39,7 @@ class MyThemes {
       backgroundColor: Colors.black,
       focusColor: Colors.white,
       //colorScheme: ColorScheme.dark(),
-      iconTheme: new IconThemeData(
+      iconTheme: const IconThemeData(
           color: Colors.white,
           size: 30.0
       ),
@@ -57,7 +57,7 @@ static final lightTheme = ThemeData(
     primarySwatch: colorCustom,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     //colorScheme: ColorScheme.light(),
-    canvasColor: Color(0xFF151C26),
+    canvasColor: const Color(0xFF151C26),
     bottomAppBarColor: Colors.black,
     backgroundColor: Colors.white,
     focusColor: Colors.black,
