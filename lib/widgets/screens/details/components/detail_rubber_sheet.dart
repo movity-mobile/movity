@@ -72,7 +72,7 @@ class _DetailRubberSheetState extends State<DetailRubberSheet> {
   final days = ["Monday", "Tuesday", "Tuesday", "Thursday","Friday","Saturday","Sunday"];
   final clubs=[
                 {"name":"Rotaract","img":"/v1654195006/tvdtc6q9t6naxzt2j82j.jpg"},
-                {"name":"Dreams Hopes","img":"/v1654195006/lmyctue31irkdfzs5z6n.jpg"},
+                {"name":"Dream's Hope","img":"/v1654195006/lmyctue31irkdfzs5z6n.jpg"},
                 {"name":"Ambition Jeunes","img":"/v1654195005/lyyyzof7hmimvii8qpon.jpg"},
                 {"name":"X Event","img":"/v1654195006/bwwqdyxrvvdgqglj2dvy.png"},
                 {"name":"Jeunes Leaders","img":"/v1654270988/ysu2wksvdtdoovjo75yq.jpg"},

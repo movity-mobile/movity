@@ -47,17 +47,17 @@ class notFoundAnimation extends CustomPainter {
     Offset centre11=Offset(xc11,yc11);
     Offset centre12=Offset(xc12,yc12);
     Paint paint1=Paint()
-      ..color=Theme.of(context).primaryColor
+      ..color=Theme.of(context).canvasColor
       ..strokeWidth=5
       ..style=PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
     Paint paint2=Paint()
-      ..color=Theme.of(context).primaryColor
+      ..color=Theme.of(context).canvasColor
       ..strokeWidth=5
       ..style=PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
     Paint paint3=Paint()
-      ..color=Theme.of(context).primaryColor
+      ..color=Theme.of(context).canvasColor
       ..strokeWidth=8
       ..style=PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -69,7 +69,7 @@ class notFoundAnimation extends CustomPainter {
     canvas.drawLine(centre9, centre10, paint3);
     canvas.drawLine(centre11, centre12, paint3);
     final redCircle = Paint()
-      ..color = Theme.of(context).primaryColor
+      ..color = Theme.of(context).canvasColor
       ..strokeWidth=8
       ..style = PaintingStyle.stroke;
     final arcRect = Rect.fromCircle(

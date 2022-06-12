@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class ClubModel{
   int id;
   String name;
-  List<String> genre;
-  double rating;
+  String description;
+  String rating;
   String image;
   String imageLogo;
 
   ClubModel ({
     required this.id,
-    required this.genre,
+    required this.description,
     required this.name,
     required this.rating,
     required this.image,

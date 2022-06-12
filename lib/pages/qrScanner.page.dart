@@ -51,7 +51,7 @@ class _QRViewScannerPageState extends State<QrScannerPage> {
                       padding: EdgeInsets.all(20),
                       child: QRView(
                         overlay: QrScannerOverlayShape(
-                            borderColor: Theme.of(context).primaryColor,
+                            borderColor: Theme.of(context).canvasColor,
                             borderLength: 20,
                             borderWidth: 20,
                             cutOutSize:
