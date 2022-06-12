@@ -43,7 +43,7 @@ class MoviesPage extends StatelessWidget {
                       child: TextFormField(
                         controller: _textEditingController,
                         decoration: const InputDecoration(
-                          hintStyle: TextStyle(color:Style.Colors.mainColor ),
+                          hintStyle: TextStyle(color:Style.Colors.secondColor ),
                             contentPadding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                             border: OutlineInputBorder(
                               
@@ -51,7 +51,7 @@ class MoviesPage extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(20)),
                                 borderSide: BorderSide(
                                     width: 1,
-                                    color:Style.Colors.mainColor))),
+                                    color:Style.Colors.secondColor))),
                       ),
                     ),
                     IconButton(

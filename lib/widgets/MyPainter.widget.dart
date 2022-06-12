@@ -16,12 +16,12 @@ class MyPainter extends CustomPainter {
     Offset cl2 = Offset(xc, yc+radius*2);
     Offset cl3 = Offset(xc+radius*value, yc+radius*2);
     Paint paint1 = Paint()
-    ..color=Theme.of(context).primaryColor
+    ..color=Theme.of(context).canvasColor
     ..strokeWidth=5
     ..style=PaintingStyle.stroke;
 
     Paint paint2 = Paint()
-      ..color=Theme.of(context).primaryColor
+      ..color=Theme.of(context).canvasColor
       ..strokeWidth=3
       ..style=PaintingStyle.stroke;
     double xp=xc+radius*cos(radians);

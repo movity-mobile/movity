@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:movity_app/UI/theme.ui.dart'as Style;
+import 'package:movity_app/constants/constants.dart';
 
 
 Map<int, Color> color =
@@ -35,13 +36,22 @@ class MyThemes {
       bottomAppBarColor: Colors.white,
       canvasColor: Colors.white,
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      backgroundColor: Colors.black,
+      focusColor: Colors.white,
       //colorScheme: ColorScheme.dark(),
       iconTheme: const IconThemeData(
           color: Colors.white,
           size: 30.0
       ),
       primaryTextTheme:
-      const TextTheme(headline1: TextStyle(color: Colors.white,fontSize: 60, ), bodyText2: TextStyle(color: Colors.white,fontSize: 14, ),headline6: TextStyle(color: Colors.white,fontSize: 20, )));
+      TextTheme(
+          headline1: TextStyle(color: Colors.white,fontSize: 60, ),
+          bodyText2: TextStyle(color: Colors.white,fontSize: 14, ),
+          headline6: TextStyle(color: Colors.white,fontSize: 20, ),
+          bodyText1 : TextStyle(fontSize: 22.0, color: Colors.white ,fontWeight: FontWeight.bold),
+          subtitle1: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          subtitle2: TextStyle(color: white.withOpacity(0.6), fontSize: 12,)
+      ));
 static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     primarySwatch: colorCustom,
@@ -49,12 +59,22 @@ static final lightTheme = ThemeData(
     //colorScheme: ColorScheme.light(),
     canvasColor: const Color(0xFF151C26),
     bottomAppBarColor: Colors.black,
-    iconTheme: const IconThemeData(
+    backgroundColor: Colors.white,
+    focusColor: Colors.black,
+    iconTheme: IconThemeData(
         color: Colors.white,
         size: 30.0
     ),
     primaryTextTheme:
-    const TextTheme(headline1: TextStyle(color: Colors.black,fontSize: 60, ), bodyText2: TextStyle(color: Colors.white,fontSize: 14, ),headline6: TextStyle(color: Colors.black,fontSize: 20, )));
+    TextTheme(headline1: TextStyle(color: Colors.black,fontSize: 60, ),
+        bodyText2: TextStyle(color: Colors.white,fontSize: 14, ),
+        headline6: TextStyle(color: Colors.black,fontSize: 20, ),
+        bodyText1: TextStyle(fontSize: 22.0 ,fontWeight: FontWeight.bold,color: Colors.black),
+        subtitle1: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
+        subtitle2: TextStyle(color: black.withOpacity(0.6), fontSize: 12,)
+    ),
+
+);
 }
 
 class InitialTheme extends ThemeState {

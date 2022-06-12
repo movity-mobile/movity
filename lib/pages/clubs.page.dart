@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movity_app/widgets/screens/movies/home_screen.dart';
+import 'package:movity_app/widgets/screens_clubs/clubs/clubs_screen.dart';
 import 'package:movity_app/widgets/switch.widget.dart';
 
 import '../widgets/drawar.widget.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+class ClubsPage extends StatefulWidget {
+  const ClubsPage({Key? key}) : super(key: key);
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  State<ClubsPage> createState() => _ClubsPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _ClubsPageState extends State<ClubsPage> {
   Size get size => MediaQuery.of(context).size;
 
   //to Center the movie List View
@@ -29,15 +29,14 @@ class _SearchPageState extends State<SearchPage> {
     });
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      drawer: const MyDrawer(),
-      appBar: AppBar(
-        title: const Text(
-          'Movies',
+        backgroundColor: Theme.of(context).primaryColor,
+        drawer: const MyDrawer(),
+        appBar: AppBar(
+          title: const Text(
+            'Clubs',
+          ),
         ),
-        actions: const [MySwitch()],
-      ),
-      body: HomeScreen()
+        body: ClubScreen()
     );
   }
 }
