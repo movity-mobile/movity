@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-bool status = true;
-class MySwitch extends StatelessWidget {
+
+class MySwitch extends StatefulWidget {
   const MySwitch({Key? key}) : super(key: key);
 
+  @override
+  State<MySwitch> createState() => _MySwitchState();
+}
+
+class _MySwitchState extends State<MySwitch> {
+  bool status = true;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,9 +32,11 @@ class MySwitch extends StatelessWidget {
                     borderRadius: 30.0,
                     padding: 8.0,
                     showOnOff: false,
-                    onToggle: (bool position) {
+                    onToggle: (position) {
+                        setState(() {
+                          status = position;
+                        });
                         context.read<ThemeBloc>().add(SwitchThemeEvent());
-                        status = position;
                       },
                     activeIcon: Icon(Icons.wb_sunny, color: Colors.yellow,),
                     activeToggleColor: Colors.black,

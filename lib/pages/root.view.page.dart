@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movity_app/bloc/theme.bloc.dart';
 import 'package:movity_app/pages/Search.page.dart';
+import 'package:movity_app/pages/clubs.page.dart';
 import 'package:movity_app/pages/home.page.dart';
 import 'package:movity_app/pages/qrGenerator.page.dart';
 import 'package:movity_app/pages/qrScanner.page.dart';
@@ -25,7 +26,8 @@ class RootView extends StatelessWidget {
               "/qrGenerator":(context)=>const QrGeneratorPage(),
               "/qrScanner": (context)=> QrScannerPage(),
               "/search": (context)=> const MoviesPage(),
-              "/movies":(context)=> SearchPage()
+              "/movies":(context)=> SearchPage(),
+              "/clubs" : (context) => ClubsPage()
             },
             initialRoute: "/",
           );

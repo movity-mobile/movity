@@ -37,10 +37,10 @@ class _actorListState extends State<actorList> {
                 vertical: kDefaultPadding / 2,
                 horizontal: kDefaultPadding,
               ),
-          child: Text("CAST", style: TextStyle(
-            color: Style.Colors.titleColor,
-            fontWeight: FontWeight.w500,
-            fontSize: 12.0
+          child: Text("ACTORS", style: TextStyle(
+            color:Style.Colors.secondColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 18
           ),),
         ),
         
@@ -98,7 +98,7 @@ class _actorListState extends State<actorList> {
   Widget _buildPersonsWidget(ActorsResponse ? data) {
     List <Person>? persons = data?.persons;
     if (persons!.isEmpty) {
-      return Container(
+      return SizedBox(
         width: MediaQuery
             .of(context)
             .size
@@ -137,7 +137,7 @@ class _actorListState extends State<actorList> {
                         shape: BoxShape.circle,
                         color: Style.Colors.secondColor
                       ),
-                      child: const Icon(FontAwesomeIcons.users, color: Colors.white,),
+                      child: const Icon(FontAwesomeIcons.user, color: Colors.white,),
                     ) :
                     Container(
                       width: 70.0,
@@ -163,14 +163,6 @@ class _actorListState extends State<actorList> {
                       ),
 
                     ),
-                    const SizedBox(
-                      height: 3.0,
-                    ),
-                    Text("${persons[index].name}", style: const TextStyle(
-                      color: Style.Colors.titleColor,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 9.0
-                    ),)
                   ],
                 ),
               );
