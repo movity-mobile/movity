@@ -4,8 +4,6 @@ import 'package:movity_app/bloc/genre.bloc.dart';
 import 'package:movity_app/bloc/movies.bloc.dart';
 import 'package:movity_app/UI/theme.ui.dart'as Style;
 
-import '../widgets/drawar.widget.dart';
-
 class Filter extends StatelessWidget {
   List genres = ["Action","Adventure","Animation","Comedy","Crime","Documentary","Drama","Family","Fantasy","History","Horror","Music","Mystery","Romance","Science Fiction"
       "TV Movie","Thriller", "War","Western"];

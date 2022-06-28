@@ -1,13 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:movity_app/constants/constants.dart';
-import 'package:movity_app/model/movie_model.dart';
+import 'package:movity_app/model/movie.model.dart';
 import 'package:movity_app/widgets/genres_format.dart';
 import 'package:movity_app/widgets/star_rating.dart';
 import 'package:rubber/rubber.dart';
+import 'package:intl/intl.dart';
+import 'dart:math';
 
 class DetailRubberSheet extends StatefulWidget {
-  final MovieModel movie;
+  final Movie movie;
   final ScrollController rubberSheetScrollController;
   final RubberAnimationController rubberSheetAnimationController;
 
@@ -22,7 +25,7 @@ class DetailRubberSheet extends StatefulWidget {
 }
 
 class _DetailRubberSheetState extends State<DetailRubberSheet> {
-  Widget _cast(List castList) {
+  /*Widget _cast(List castList) {
     Size size = MediaQuery.of(context).size;
 
     return Container(
@@ -63,8 +66,18 @@ class _DetailRubberSheetState extends State<DetailRubberSheet> {
             );
           }),
     );
-  }
-
+  }*/
+  int randomNumber = new Random().nextInt(7);
+  int randomClub = new Random().nextInt(6);
+  final days = ["Monday", "Tuesday", "Tuesday", "Thursday","Friday","Saturday","Sunday"];
+  final clubs=[
+                {"name":"Rotaract","img":"/v1654195006/tvdtc6q9t6naxzt2j82j.jpg"},
+                {"name":"Dream's Hope","img":"/v1654195006/lmyctue31irkdfzs5z6n.jpg"},
+                {"name":"Ambition Jeunes","img":"/v1654195005/lyyyzof7hmimvii8qpon.jpg"},
+                {"name":"X Event","img":"/v1654195006/bwwqdyxrvvdgqglj2dvy.png"},
+                {"name":"Jeunes Leaders","img":"/v1654270988/ysu2wksvdtdoovjo75yq.jpg"},
+                {"name":"Lions","img":"/v1654271165/vemvjru9f1eh1pvf9owx.jpg"}
+              ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -87,18 +100,18 @@ class _DetailRubberSheetState extends State<DetailRubberSheet> {
         upperLayer: Container(
           child: Column(
             children: [
-              Container(
+              /*Container(
                 child: Center(
                   child: Image(
                     image: widget.movie.imageLogo.image,
                     width: size.width / 2,
                   ),
                 ),
-              ),
+              ),*/
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: white,
+                    color: Theme.of(context).backgroundColor,
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(50.0),
                     ),
@@ -108,18 +121,40 @@ class _DetailRubberSheetState extends State<DetailRubberSheet> {
                     padding: EdgeInsets.all(appPadding),
                     controller: widget.rubberSheetScrollController,
                     children: [
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            CupertinoIcons.calendar_today,
+                            color: secondary
+                          ),
+                          SizedBox(
+                            height: 2.0,
+                          ),
+                          Text(
+                            "${DateFormat('EEEE').format(DateTime.now())==days[randomNumber]?"Today":"This ${days[randomNumber]}"}",
+                            style: TextStyle(
+                              fontSize: 19.0,
+                              fontWeight: FontWeight.bold,
+                              color: secondary,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
                       Text(
-                        widget.movie.name,
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        "${widget.movie.title}",
+                        style: Theme.of(context).primaryTextTheme.bodyText1,
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(
                         height: 8.0,
                       ),
-                      //GenresFormat(widget.movie.genre, Colors.black),
+                      GenresFormat(widget.movie.genreIds, Theme.of(context).focusColor),
                       SizedBox(
                         height: 8.0,
                       ),
@@ -127,58 +162,58 @@ class _DetailRubberSheetState extends State<DetailRubberSheet> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            widget.movie.rating.toString(),
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
+                            '${widget.movie.voteAverage}',
+                            style: Theme.of(context).primaryTextTheme.subtitle1),
                           SizedBox(
                             width: 8.0,
                           ),
-                          //StarRating(widget.movie.rating),
+                          StarRating(widget.movie.voteAverage),
                         ],
                       ),
                       SizedBox(
                         height: 8.0,
                       ),
-                      Text(
+                      /*Text(
                         'Director : ' + widget.movie.director,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
-                      ),
+                      ),*/
                       SizedBox(
                         height: 20.0,
                       ),
                       Text(
-                        'Actors',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        'Club',
+                        style: Theme.of(context).primaryTextTheme.subtitle1,
                       ),
 
-                      //Function to show actors or cast
-
-                      _cast(widget.movie.castList),
-
+                      //Function to show club
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image(
+                            image: NetworkImage('https://res.cloudinary.com/nesrine/image/upload${clubs[randomClub]['img']}'),
+                            height: 100,
+                          ),
+                        ),
+                        Text(
+                          '${clubs[randomClub]['name']}',
+                          style: Theme.of(context).primaryTextTheme.subtitle2,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                        )
+                      ,
                       Text(
                         'Story Line',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context).primaryTextTheme.subtitle1,
                       ),
                       SizedBox(
                         height: 12.0,
                       ),
                       Text(
-                        widget.movie.storyLine,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: black.withOpacity(0.6),
-                        ),
+                        '${widget.movie.overview}',
+                        style: Theme.of(context).primaryTextTheme.subtitle2,
                         textAlign: TextAlign.justify,
                       ),
                       SizedBox(

@@ -13,6 +13,7 @@ class MyDrawer extends StatelessWidget {
       {"title":"Movies", "icon": Icon(Icons.movie, color: Style.Colors.secondColor), "route":"/movies"},
       {"title":"QR Code Generate", "icon": Icon(Icons.qr_code, color: Style.Colors.secondColor), "route":"/qrGenerator"},
       {"title":"QR Scan ", "icon": Icon(Icons.qr_code_scanner, color: Style.Colors.secondColor), "route":"/qrScanner"},
+      {"title":"Clubs", "icon": Icon(Icons.volunteer_activism, color: Style.Colors.secondColor), "route":"/clubs"},
     ];
     return Drawer(
       backgroundColor: Style.Colors.mainColor ,
