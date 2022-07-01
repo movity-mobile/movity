@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movity_app/pages/qrScanner.page.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../widgets/drawar.widget.dart';
 import 'package:movity_app/UI/theme.ui.dart' as Style;
@@ -79,38 +80,38 @@ class QrGeneratorPage extends State<QRCodePage> {
                   child: Row(
 
                     children: [
-                    TextButton(
-                        style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                          backgroundColor: MaterialStateProperty.all<Color>(Style.Colors.titleColor,),
-                        ),
-                        onPressed: () {
-                          _controller.clear();
-                          _controller1.clear();
-                          _controller2.clear();
-                          setState(() {
-                            data = "";
-                          });
-                        },
-                        child: Text('Rénitialiser')
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 10.0),
-                      child: TextButton(
+                      TextButton(
                           style: ButtonStyle(
                             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                             backgroundColor: MaterialStateProperty.all<Color>(Style.Colors.titleColor,),
                           ),
                           onPressed: () {
-
+                            _controller.clear();
+                            _controller1.clear();
+                            _controller2.clear();
                             setState(() {
-                              data = _controller.text + ' ' + _controller1.text + ' '+_controller2.text;
+                              data = "";
                             });
                           },
-                          child: Text('Générer')
+                          child: Text('Rénitialiser')
                       ),
-                    )
-                  ],),
+                      Container(
+                        margin: const EdgeInsets.only(left: 10.0),
+                        child: TextButton(
+                            style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                              backgroundColor: MaterialStateProperty.all<Color>(Style.Colors.titleColor,),
+                            ),
+                            onPressed: () {
+
+                              setState(() {
+                                data = _controller.text + ' ' + _controller1.text + ' '+_controller2.text;
+                              });
+                            },
+                            child: Text('Générer')
+                        ),
+                      )
+                    ],),
                 ),
 
               ],
@@ -124,7 +125,15 @@ class QrGeneratorPage extends State<QRCodePage> {
         children: [
           FloatingActionButton(
               child: Icon(Icons.qr_code_2_outlined),
-              onPressed: () {}
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        QrScannerPage( ),
+                  ),
+                );
+              }
           )
         ],
       ),

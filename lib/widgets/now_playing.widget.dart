@@ -6,6 +6,8 @@ import 'package:movity_app/model/home.movies.model.dart';
 import 'package:movity_app/model/movie_response.model.dart';
 import 'package:page_indicator/page_indicator.dart';
 import 'package:movity_app/UI/theme.ui.dart' as Style;
+import 'package:url_launcher/url_launcher.dart';
+
 class NowPlaying extends StatefulWidget {
 
   @override
@@ -124,12 +126,62 @@ class NowPlaying extends StatefulWidget {
                       )
                     ),
                   ),
-                  Positioned(
-                      top: 0,
-                      bottom: 0,
-                      right: 0,
-                      left: 0,
-                      child: Icon(FontAwesomeIcons.play, color: Style.Colors.secondColor, size: 40.0,)),
+                  Container(
+                    child:
+                    GestureDetector(
+                      onTap: () async {
+                        String youtubeUrl =
+                            '';
+                        if (index == 0){
+                          youtubeUrl =
+                          'https://www.youtube.com/watch?v=Rt_UqUm38BI';
+                        }else if (index == 1){
+                          youtubeUrl = 'https://www.youtube.com/watch?v=V4tAtp-TyzQ';
+                        }else if(index == 2){
+                          youtubeUrl = 'https://www.youtube.com/watch?v=nfKO9rYDmE8&t=31s';
+                        }else if(index == 3){
+                          youtubeUrl = 'https://www.youtube.com/watch?v=UmDxTrJa3XA';
+                        }else{
+                          youtubeUrl = 'https://www.youtube.com/watch?v=oZ6iiRrz1SY&t=6s';
+                        }
+                        await launchUrl(Uri.parse(youtubeUrl));
+                      },
+                      child: Center(
+                        child: Positioned(
+                            top: 0,
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            child: Icon(FontAwesomeIcons.play, color: Style.Colors.secondColor, size: 40.0,)),
+                      ),
+                      ),
+                    ),
+
+
+
+/*
+                  Container(
+                    padding: EdgeInsets.only(top: 120),
+                    child: GestureDetector(
+                      onTap: () async {
+                        final youtubeUrl =
+                            'https://www.youtube.com/watch?v=Y9dr2zw-TXQ';
+                        await launchUrl(Uri.parse(youtubeUrl));
+                      },
+                      child: Center(
+                        child: Column(
+                          children: <Widget>[
+                            Icon(
+                              Icons.play_circle_outline,
+                              color: Colors.yellow,
+                              size: 65,
+                            ),
+
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),*/
                   Positioned(
                     bottom: 30.0,
                       child:

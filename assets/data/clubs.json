@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "Xevent Club",
+      "description": "Description 1"
+    },
+    {
+      "id": "p2",
+      "name": "Item 2",
+      "description": "Description 2"
+    },
+    {
+      "id": "p3",
+      "name": "Item 3",
+      "description": "Description 3"
+    }
+  ]
+}
