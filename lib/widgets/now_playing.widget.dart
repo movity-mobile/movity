@@ -134,15 +134,15 @@ class NowPlaying extends StatefulWidget {
                             '';
                         if (index == 0){
                           youtubeUrl =
-                          'https://www.youtube.com/watch?v=Y9dr2zw-TXQ';
+                          'https://www.youtube.com/watch?v=Rt_UqUm38BI';
                         }else if (index == 1){
-                          youtubeUrl = 'https://www.youtube.com/watch?v=oZ6iiRrz1SY';
+                          youtubeUrl = 'https://www.youtube.com/watch?v=V4tAtp-TyzQ';
                         }else if(index == 2){
-                          youtubeUrl = 'https://www.youtube.com/watch?v=nfKO9rYDmE8';
+                          youtubeUrl = 'https://www.youtube.com/watch?v=nfKO9rYDmE8&t=31s';
                         }else if(index == 3){
-                          youtubeUrl = 'https://www.youtube.com/watch?v=szby7ZHLnkA';
+                          youtubeUrl = 'https://www.youtube.com/watch?v=UmDxTrJa3XA';
                         }else{
-                          youtubeUrl = 'https://www.youtube.com/watch?v=ye63hQLDj4k';
+                          youtubeUrl = 'https://www.youtube.com/watch?v=oZ6iiRrz1SY&t=6s';
                         }
                         await launchUrl(Uri.parse(youtubeUrl));
                       },

@@ -23,7 +23,7 @@ class RootView extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             routes: {
               "/":(context)=> HomePage(),
-              "/qrGenerator":(context)=>const QrGeneratorPage(),
+              "/qrGenerator":(context)=>const QRCodePage(),
               "/qrScanner": (context)=> QrScannerPage(),
               "/search": (context)=> const MoviesPage(),
               "/movies":(context)=> SearchPage(),
